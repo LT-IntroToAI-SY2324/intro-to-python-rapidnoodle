@@ -26,6 +26,8 @@ def absolute(n: int) -> int:
     Returns:
         the absolute value of the passed in number
     """
+
+    # turnary operators make me feel like a cool coder
     return n if n >= 0 else n * -1
 
 
@@ -39,10 +41,10 @@ def factorial(n: int) -> int:
     Returns:
         factorial of the passed in number
     """
-    total = 1
-    for i in range(1, n + 1):
-        total *= i
-    return total
+
+    # recursion!!!
+    # the check to see if n == 1 is needed otherwise it would infinitely loop
+    return 1 if n == 1 else factorial(n - 1) * n
 
 
 T = TypeVar("T")
@@ -59,11 +61,11 @@ def every_other(lst: List[T]) -> List[T]:
     Returns:
         a list of every of other item in the original list starting with the first
     """
-    newList: List[T] = []
-    for index, value in enumerate(lst):
-        if index % 2 == 0:
-            newList.append(value)
-    return newList
+
+    # slices array from index 0 to len(lst)
+    # the third argument is the step
+    # (2 step meaning skips every other element)
+    return lst[::2]
 
 
 def sum_list(lst: List[int]) -> int:
@@ -76,6 +78,7 @@ def sum_list(lst: List[int]) -> int:
     Returns:
         the sum of the passed in list
     """
+
     total = 0
     for value in lst:
         total += value
@@ -91,8 +94,8 @@ def mean(lst: List[int]) -> float:
     Returns:
         the mean of the passed in list
     """
-    total = sum_list(lst)
-    return total / len(lst)
+
+    return sum_list(lst) / len(lst)
 
 
 def median(lst: List[int]) -> float:
@@ -107,6 +110,7 @@ def median(lst: List[int]) -> float:
     Returns:
         the median of the passed in list
     """
+
     middle = len(lst) / 2
     if isinstance(middle, int):
         value1 = lst[math.floor(middle)]
@@ -135,6 +139,7 @@ def duck_duck_goose(lst: List[str]) -> List[str]:
     Returns:
         the resulting list after playing duck duck goose
     """
+    
     inGame = lst[:]
     index = 2
     while len(inGame) > 2:
